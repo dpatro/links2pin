@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <p>{{ status }}</p>
+    <p><a href="{{ logout_url }}">Log out</a></p>
+
+    <form action="/" method="post">
+        <div>Link : <input type="text" name="link" required="true" /></div>
+        <div>Tag Id : <input type="text" name="tag" required="true" /></div>
+        <input type="hidden" value="{{ user_id }}" name="user" />
+        <div><input type="submit" value="Post Link"></div>
+    </form>
+
+    <p>Previous Posts:</p>
+    {% for post in posts %}
+    <b>{{ post.title }}</b> posted by {{ post.user }}:
+    <blockquote>{{ post.body|escape }}</blockquote>
+    {% endfor %}
+
+</body>
+</html>
