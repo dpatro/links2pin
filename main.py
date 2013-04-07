@@ -33,7 +33,7 @@ class MainHandler(webapp2.RequestHandler):
         else:
             if not projutils.check_if_user(cur_user.email()):
                 user_id, auth_id = projutils.add_user(cur_user)
-                status = "New User with id: %d and %s"% (user_id, auth_id)
+                status = "New User with id: %d and %s" % (user_id, auth_id)
             else:
                 user_id = projutils.get_user_id_by_email(cur_user.email())
                 status = "Old User with id: %d"%user_id
